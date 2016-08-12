@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="MilkcocoaSampleApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MilkcocoaSampleApp.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <StackPanel Margin="5">
+            <TextBlock Text="Milkcocoa" FontSize="24" FontWeight="Bold"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="AppID" Margin="5" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtAppId" Width="Auto" Margin="5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnConnect" Content="Connect" Width="100" Height="40" Margin="5" Click="btnConnect_Click"/>
+                <Button x:Name="btnDisconnect" Content="Disconnect" Width="100" Height="40" Margin="5" Click="btnDisconnect_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Margin="5">
+            <TextBlock Text="Publisher" FontSize="24" FontWeight="Bold"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Path" Margin="5" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtPubPath" Width="Auto" Margin="5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Text="message"/>
+                <TextBlock Text="Value" Margin="5" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtPubValue" Width="Auto" Margin="5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnPubPush" Content="Push" Width="100" Height="40" Margin="5" Click="btnPubPush_Click"/>
+                <Button x:Name="btnPubSend" Content="Send" Width="100" Height="40" Margin="5" Click="btnPubSend_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Margin="5">
+            <TextBlock Text="Subscriber" FontSize="24" FontWeight="Bold"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Path" Margin="5" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtSubPath" Width="Auto" Margin="5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Text="message"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnSubSubscribe" Content="Subscribe" Width="100" Height="40" Margin="5" Click="btnSubSubscribe_Click"/>
+                <Button x:Name="btnSubUnsubscribe" Content="Unsubscribe" Width="100" Height="40" Margin="5" Click="btnSubUnsubscribe_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <ListBox x:Name="lstSubValues" Height="200"/>
+    </StackPanel>
+</Page>

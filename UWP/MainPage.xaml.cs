@@ -108,9 +108,6 @@ namespace MilkcocoaSampleApp
             Milkcocoa = new Milkcocoa.Milkcocoa(txtAppId.Text + ".mlkcca.com");
 
             IsConnect = true;
-
-            var history = Milkcocoa.dataStore("messag").history();
-            var values = await history.run();
         }
 
         private void btnDisconnect_Click(object sender, RoutedEventArgs e)

@@ -103,7 +103,7 @@ namespace MilkcocoaSampleApp
             IsConnect = false;
         }
 
-        private async void btnConnect_Click(object sender, RoutedEventArgs e)
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
             Milkcocoa = new Milkcocoa.Milkcocoa(txtAppId.Text + ".mlkcca.com");
 

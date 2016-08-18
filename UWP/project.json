@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "Milkcocoa": "0.3.0"
+    "Milkcocoa": "1.1.0"
   },
   "frameworks": {
     "uap10.0": {}

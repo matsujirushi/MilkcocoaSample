@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using mlk = Milkcocoa;
 
 // 空白ページのアイテム テンプレートについては、http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 を参照してください
 
@@ -105,7 +106,7 @@ namespace MilkcocoaSampleApp
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            Milkcocoa = new Milkcocoa.Milkcocoa(txtAppId.Text + ".mlkcca.com");
+            Milkcocoa = new Milkcocoa.Milkcocoa(mlk.Milkcocoa.MakeHostString(txtAppId.Text));
 
             IsConnect = true;
         }
@@ -146,16 +147,16 @@ namespace MilkcocoaSampleApp
 
         private void btnSubSubscribe_Click(object sender, RoutedEventArgs e)
         {
-            Milkcocoa.dataStore(txtSubPath.Text).on("push", MilkcocoaCallback);
-            Milkcocoa.dataStore(txtSubPath.Text).on("send", MilkcocoaCallback);
+            Milkcocoa.dataStore(txtSubPath.Text).on(mlk.DataStore.Event.Push, MilkcocoaCallback);
+            Milkcocoa.dataStore(txtSubPath.Text).on(mlk.DataStore.Event.Send, MilkcocoaCallback);
 
             IsSubscribe = true;
         }
 
         private void btnSubUnsubscribe_Click(object sender, RoutedEventArgs e)
         {
-            Milkcocoa.dataStore(txtSubPath.Text).off("push");
-            Milkcocoa.dataStore(txtSubPath.Text).off("send");
+            Milkcocoa.dataStore(txtSubPath.Text).off(mlk.DataStore.Event.Push);
+            Milkcocoa.dataStore(txtSubPath.Text).off(mlk.DataStore.Event.Send);
 
             IsSubscribe = false;
         }

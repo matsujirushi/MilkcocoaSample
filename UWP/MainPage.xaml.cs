@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -167,7 +168,9 @@ namespace MilkcocoaSampleApp
 
             var dummy = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                lstSubValues.Items.Insert(0, string.Format("{0:HH:mm:ss.fff} {1}", DateTime.Now, e.value.content));
+                var content = (JValue)((JObject)e.value)["content"];
+                var contentStr = (string)content.Value;
+                lstSubValues.Items.Insert(0, string.Format("{0:HH:mm:ss.fff} {1}", DateTime.Now, contentStr));
                 lstSubValues.SelectedIndex = 0;
             });
         }

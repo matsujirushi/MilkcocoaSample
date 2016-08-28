@@ -14,7 +14,7 @@ namespace MilkcocoaSampleApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private Milkcocoa.Milkcocoa Milkcocoa;
+        private mlk.Milkcocoa Milkcocoa;
 
         private bool _IsConnect;
         private bool IsConnect
@@ -96,7 +96,7 @@ namespace MilkcocoaSampleApp
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            Milkcocoa = new Milkcocoa.Milkcocoa(mlk.Milkcocoa.MakeHostString(txtAppId.Text));
+            Milkcocoa = new mlk.Milkcocoa(mlk.Milkcocoa.MakeHostString(txtAppId.Text));
 
             IsConnect = true;
         }
@@ -151,11 +151,11 @@ namespace MilkcocoaSampleApp
             IsSubscribe = false;
         }
 
-        private void MilkcocoaCallback(Milkcocoa.MilkcocoaDataStoreEventArgs e)
+        private async void MilkcocoaCallback(Milkcocoa.MilkcocoaDataStoreEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(string.Format("{0:HH:mm:ss.fff} Sub  {1}", DateTime.Now, e.path));
 
-            var dummy = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 var content = (JValue)((JObject)e.value)["content"];
                 var contentStr = (string)content.Value;
